@@ -1,4 +1,63 @@
 /*
 CSS file for WYWM API project
+
+
+
 */
-h1{color:goldenrod;}
+
+*{
+    color: grey;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html,body{
+    height:100%;
+    margin:0px;
+    background-color: wheat;
+    background-image: url(recipe.jpg);
+    background-size: cover;
+    background-blend-mode: lighten;
+    height: 100%;
+    background-position: center;
+}
+
+h1{
+    font-size:3cm;
+    margin:0;
+    padding: 0.5cm;
+    padding-left: 1cm;
+    color: rgb(189, 145, 88);
+    margin-bottom: 1cm;
+}
+
+.panel{
+    width:75%;
+    height:auto;
+    margin-left:2cm;
+    margin-right:2cm;
+    padding: 0.5cm;
+    padding-left: 1cm;
+    border-radius:0.5cm;
+    background-color: rgb(240, 233, 222);
+    margin-bottom: 1cm;
+}
+
+table{
+    max-width: 100%;
+}
+
+td{
+    white-space: normal;
+}
+
+th{
+    padding: 0.5cm;
+}
+
+#chart{
+    width: 100%;
+}
+
+.img-container{
+    display:none;
+}
