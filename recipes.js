@@ -20,7 +20,7 @@ async function getRecipes(searchText){
         apiKey: apikey,
         ingredients: searchText,
         ignorePantry: false,
-        number: 5,
+        number: 2,
         }), {
 
         })
@@ -40,6 +40,22 @@ async function getRecipes(searchText){
         });
 }
 
+async function getInfo(recipeId){
+    const infoUrl = "https://api.spoonacular.com/recipes/"+recipeId+"/information?";
+    return fetch(infoUrl + new URLSearchParams({
+        apiKey: apikey
+        }), {
+        })
+        .then(resp => resp.json())
+
+        .then(function(data2) {
+            return data2;
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+}
+
 function updateRecipes(){
     textContent.innerHTML = "";
     var searchText = document.getElementById("recipe-search").value;
@@ -50,11 +66,11 @@ function updateRecipes(){
             let rTitle = createTitles(element);
             textContent.appendChild(rTitle);
             
-            let rRow = createImage(element);
+            let rRow = createRecipe(element);
             textContent.appendChild(rRow);
-        });
-        })
 
+            });
+        });
     }
 
 function createTitles(element){
@@ -65,18 +81,22 @@ function createTitles(element){
 }
 
 //Combine createTitles and createImage - will need to modify updateRecipes
-//add rCell2 with available and missing ingredients and quantities
+//Get recipe instructions
 
 
-function createImage(element){
+function createRecipe(element){
     //console.log(element)
     let rRow = document.createElement("TR");
     let rCell1 = document.createElement("TD");
     let rCell2 = document.createElement("TD");
     let rIngList = document.createElement("UL");
-    
     let rImage = document.createElement("IMG");
-    var ingredText = "";
+    let rInfoLink = document.createElement("P");
+    //let rInfoTxt = document.createElement("p");
+    //rInfoTxt.innerHTML = "Information & Instructions";
+    rInfoLink.setAttribute("id","rInfo"+element.id);
+    createInfo(element.id);
+    //rInfoLink.setAttribute("href",rInfo);
     rImage.setAttribute("src", element.image);
     rCell1.innerHTML = rImage.outerHTML;
     element.usedIngredients.forEach(ing => {
@@ -93,8 +113,26 @@ function createImage(element){
         return rIngListItem;
     }
 
-    rCell2.innerHTML = rIngList.outerHTML;
+    rCell2.innerHTML = rIngList.outerHTML + rInfoLink.outerHTML;
     rRow.innerHTML = rCell1.outerHTML + rCell2.outerHTML;
     return rRow;
 }
 
+function createInfo(recipeId){
+    getInfo(recipeId).then(function(data2){
+        let rInfo = createInfo2(data2);
+
+        function createInfo2(data2){
+            let rInfo = document.createElement("A");
+            rInfo.setAttribute("href",data2.sourceUrl);
+            rInfo.setAttribute("target","_blank");
+            rInfo.innerHTML = "Information & Instructions";
+            rInfo.setAttribute("class","info-link");
+            console.log(rInfo.outerHTML);
+            return rInfo.outerHTML;
+        }
+        console.log(rInfo);
+        var idInfo = document.getElementById("rInfo"+recipeId);
+        idInfo.innerHTML=rInfo;
+        });
+    }

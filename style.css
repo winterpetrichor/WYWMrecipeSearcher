@@ -48,10 +48,12 @@ table{
 
 td{
     white-space: normal;
+    vertical-align: top;
 }
 
 th{
     padding: 0.5cm;
+    margin-top: 1cm;
 }
 
 #chart{
@@ -60,4 +62,9 @@ th{
 
 .img-container{
     display:none;
+}
+
+.info-link{
+    margin-left: 0.5cm;
+    color: blue;
 }
