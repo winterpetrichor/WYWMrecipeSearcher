@@ -17,13 +17,18 @@
         </h1>
         <div class="panel">
             <p>
-                On this page, you can search ingredients and get recipes for those ingredients.
+                On this page, you can search ingredients and get recipes for 
+                those ingredients.
             </p>
             <p>
                 Search multiple ingredients separated by commas. 
             </p>
             <p>
                 For example: "apple, banana"
+            </p>
+            <p>
+                <u>Note:</u> Number of results are limited to 3 to reduce 
+                the likelihood of reaching the API point limit.
             </p>
                     <input type="search" id="recipe-search" name="q" placeholder="apple, banana">
                     <input type="button" value="Search recipes" onclick="updateRecipes()">

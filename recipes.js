@@ -20,7 +20,7 @@ async function getRecipes(searchText){
         apiKey: apikey,
         ingredients: searchText,
         ignorePantry: false,
-        number: 2,
+        number: 3,
         }), {
 
         })
@@ -59,7 +59,7 @@ async function getInfo(recipeId){
 function updateRecipes(){
     textContent.innerHTML = "";
     var searchText = document.getElementById("recipe-search").value;
-    recipePanel.setAttribute("class", "panel");
+    recipePanel.setAttribute("class", "recipe-panel");
     getRecipes(searchText).then(function(data){
         //update recipe-results
         data.forEach(element => {
@@ -89,6 +89,7 @@ function createRecipe(element){
     let rRow = document.createElement("TR");
     let rCell1 = document.createElement("TD");
     let rCell2 = document.createElement("TD");
+    let rIngredients = document.createElement("P");
     let rIngList = document.createElement("UL");
     let rImage = document.createElement("IMG");
     let rInfoLink = document.createElement("P");
@@ -98,6 +99,8 @@ function createRecipe(element){
     createInfo(element.id);
     //rInfoLink.setAttribute("href",rInfo);
     rImage.setAttribute("src", element.image);
+    rIngredients.setAttribute("class","ingred-title");
+    rIngredients.innerHTML = "Ingredients";
     rCell1.innerHTML = rImage.outerHTML;
     element.usedIngredients.forEach(ing => {
         rIngList.appendChild(renderIngredient(ing));
@@ -113,7 +116,7 @@ function createRecipe(element){
         return rIngListItem;
     }
 
-    rCell2.innerHTML = rIngList.outerHTML + rInfoLink.outerHTML;
+    rCell2.innerHTML = rIngredients.outerHTML + rIngList.outerHTML + rInfoLink.outerHTML;
     rRow.innerHTML = rCell1.outerHTML + rCell2.outerHTML;
     return rRow;
 }

@@ -26,8 +26,10 @@ h1{
     margin:0;
     padding: 0.5cm;
     padding-left: 1cm;
+    padding-bottom: 0cm;
     color: rgb(189, 145, 88);
     margin-bottom: 1cm;
+    font-family: 'Papyrus';
 }
 
 .panel{
@@ -36,6 +38,19 @@ h1{
     margin-left:2cm;
     margin-right:2cm;
     padding: 0.5cm;
+    padding-left: 1cm;
+    border-radius:0.5cm;
+    background-color: rgb(240, 233, 222);
+    margin-bottom: 1cm;
+}
+
+.recipe-panel{
+    width:75%;
+    height:auto;
+    margin-left:2cm;
+    margin-right:2cm;
+    padding: 0.5cm;
+    padding-top: 0cm;
     padding-left: 1cm;
     border-radius:0.5cm;
     background-color: rgb(240, 233, 222);
@@ -53,7 +68,9 @@ td{
 
 th{
     padding: 0.5cm;
-    margin-top: 1cm;
+    padding-top: 1cm;
+    font-size: 0.5cm;
+    color: rgb(145, 111, 67);
 }
 
 #chart{
@@ -67,4 +84,9 @@ th{
 .info-link{
     margin-left: 0.5cm;
     color: blue;
+}
+
+.ingred-title{
+    margin-left: 0.5cm;
+    font-weight: bold;
 }
