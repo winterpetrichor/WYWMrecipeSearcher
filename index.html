@@ -6,26 +6,43 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>CC Charts</title>
+        <title>CC Recipes</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css" >
     </head>
     <body>
+    <div id = "bg">
         <h1>
-            Chart selector
+            Recipe searcher
         </h1>
-        <div>
+        <div class="panel">
             <p>
-                On this page, you can select a CC and load the current chart using an API
+                On this page, you can search ingredients and get recipes for 
+                those ingredients.
             </p>
-            <select>
-                <option>"test"</option>
-            </select>
-            <input type="button" value="Show selection">
+            <p>
+                Search multiple ingredients separated by commas. 
+            </p>
+            <p>
+                For example: "apple, banana"
+            </p>
+            <p>
+                <u>Note:</u> Number of results are limited to 3 to reduce 
+                the likelihood of reaching the API point limit.
+            </p>
+                    <input type="search" id="recipe-search" name="q" placeholder="apple, banana">
+                    <input type="button" value="Search recipes" onclick="updateRecipes()">
+            <p></p>
         </div>
-        <div>
-            <!-- might need to figure out how to pull the chart -->
+        <div class="recipe-container">
+            <div id="recipe-panel">
+                <table id="recipe-results">
+                    <!-- search results -->
+                </table>
+            </div>
         </div>
+    </div>
     </body>
 
 </html>
+<script src="recipes.js"></script>
