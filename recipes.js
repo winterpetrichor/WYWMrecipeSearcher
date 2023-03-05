@@ -10,7 +10,7 @@
 const apikey = "b05f5f279c4347eb918cd4f0851149ab";
 //number of recipes to display
 //limited to reduce API points used each refresh and test
-const numberRecipes = 2
+const numberRecipes = 3
 //get DOM elements from html id's
 const textContent = document.getElementById("recipe-results");
 const recipeSearch = document.getElementById("recipe-search");
@@ -260,8 +260,8 @@ function createInfos(element){
     let rInfoCell = document.createElement("TD");
     let rInfoLink = document.createElement("P");
     rInfoCell.setAttribute("colspan",2);
+    rInfoCell.setAttribute("class","info-cell");
     rInfoCell.innerHTML = rInfoLink.outerHTML;
-    
     rInfoLink.setAttribute("id","rInfo"+element.id);
     createInfo(element.id);
     rInfoCell.innerHTML = rInfoLink.outerHTML;
@@ -277,13 +277,13 @@ function createInfo(recipeId){
         function createInfo2(data){
             //instructions button
             let rInfo = document.createElement("INPUT");
-            linkButton(rInfo,"Information & Instructions",data);
+            linkButton(rInfo,"Info & Instructions",data);
             //nutrition button
             let rNutInfo = document.createElement("INPUT");
-            infoButton(rNutInfo,"Nutrition Information",data,"nutr");
+            infoButton(rNutInfo,"Nutrition",data,"nutr");
             //estimated pricing button
             let rPriceInfo = document.createElement("INPUT");
-            infoButton(rPriceInfo,"Estimated Pricing",data,"price");
+            infoButton(rPriceInfo,"Pricing",data,"price");
             //info divs
             let rNutInfoDiv = document.createElement("DIV");
             rNutInfoDiv.setAttribute("id","nutInfoDiv"+data.id);
@@ -341,7 +341,7 @@ async function displayInfo(datatype,dataid) {
     var rPriceData = "";
     //get nutrition image
     if(datatype === "nutr"){
-        tag = "nutrImg";
+        tag = "nutrImg"+dataid;
         rInfoImageSrc = await getNutr(dataid);
         imageDiv = document.getElementById("nutInfoDiv"+dataid);
         rPriceText = "";
@@ -353,7 +353,7 @@ async function displayInfo(datatype,dataid) {
     //API call after the fact, because that pie chart alone
     //was not very informative
     if(datatype === "price"){
-        tag = "priceImg";
+        tag = "priceImg"+dataid;
         rInfoImageSrc = await getPrice(dataid);
         rPriceData = await getActualPrice(dataid);
         rActualPrice = rPriceData.totalCost;
@@ -365,7 +365,7 @@ async function displayInfo(datatype,dataid) {
     }
     //I acknowledge that the image url shown in developer mode (F12)
     //includes the api key... this seems insecure, but looking at 
-    //workarounds seems a bit advanced for where I'm right now
+    //workarounds, they seem a bit advanced for where I'm at right now
     //so I've left it as is.
     //If you've read this comment and can explain a good, simple way
     //that I might have missed, please reach out, thank you!
@@ -401,3 +401,18 @@ function genericError(){
     " - contact the developer at https://github.com/winterpetrichor.\n"
     );
 }
+
+//search field enter key
+// Get the input field
+var input = document.getElementById("recipe-search");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("recipe-search-button").click();
+  }
+});

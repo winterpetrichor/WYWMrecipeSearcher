@@ -16,39 +16,34 @@
             That Last Ingredient
         </h1>
         <div class="panel">
-            <p>Get inspired by what you have! On this page, you can look up 
+            <p>Get inspired by what you already have!</p>
+            <p>On this page, you can look up 
             ingredients you have, and get amazing recipes that make use of 
-            those ingredients. <br><br>
-            Not sure what you have or want? 
-            Get random recipe suggestions! 
-            Recipes include nutrition information for the health conscious
-            and even display estimated pricing ($USD) for the wallet conscious!
-            <br><br>
-            <!--  
-            add nutrition facts
-            add pricing             
-            -->
-            <ol>
-                
-            <li><p>
-                Search multiple ingredients separated by commas: 
-            </p>
-            <input type="search" id="recipe-search" name="q" placeholder="apple, banana">
-            <input type="button" value="Search recipes" onclick="nonRandRecipe()">
-            <p>
-                For example: "apple, banana"
-            </p>
+            those ingredients.</p>
+            <p>Not sure what you have or want? 
+            Get random recipe suggestions!</p>
+            <p>All recipes include nutrition information for the health conscious
+            and even display estimated pricing ($USD) for the wallet conscious!</p>
             <p>
                 <b>Note:</b> <i>Results are currently limited to 3 
                 for this project to reduce the likelihood of reaching the</i>
                 <a href=https://spoonacular.com/food-api/pricing class="info-link">
                 API point limit</a>.
             </p>
+            <ol>
+                
+            <li><p>
+                Search below using ingredients. 
+                Separate multiple ingredients by commas.
+                (Example: "apple, banana, squash")
+            </p>
+            <input type="search" id="recipe-search" name="q" placeholder="apple, banana">
+            <input type="button" id="recipe-search-button" value="Search recipes" onclick="nonRandRecipe()">
             </li>
             <hr>
             <li>
                 Search for random recipes:
-                <input type="button" value="I'm feeling lucky" onclick="randomRecipe()">
+                <input type="button" value="I'm feeling lucky!" onclick="randomRecipe()">
             </li>
             <hr>
             <li>View estimated pricing and nutrition information within search results.</li>
