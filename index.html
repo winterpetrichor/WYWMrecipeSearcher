@@ -1,5 +1,5 @@
 <!-- 
-    Author: winterpetrichor
+    Author: github - winterpetrichor
     WYWM API project - use an API
 -->
 
@@ -13,25 +13,47 @@
     <body>
     <div id = "bg">
         <h1>
-            Recipe searcher
+            That Last Ingredient
         </h1>
         <div class="panel">
-            <p>
-                On this page, you can search ingredients and get recipes for 
-                those ingredients.
+            <p>Get inspired by what you have! On this page, you can look up 
+            ingredients you have, and get amazing recipes that make use of 
+            those ingredients. <br><br>
+            Not sure what you have or want? 
+            Get random recipe suggestions! 
+            Recipes include nutrition information for the health conscious
+            and even display estimated pricing ($USD) for the wallet conscious!
+            <br><br>
+            <!--  
+            add nutrition facts
+            add pricing             
+            -->
+            <ol>
+                
+            <li><p>
+                Search multiple ingredients separated by commas: 
             </p>
-            <p>
-                Search multiple ingredients separated by commas. 
-            </p>
+            <input type="search" id="recipe-search" name="q" placeholder="apple, banana">
+            <input type="button" value="Search recipes" onclick="nonRandRecipe()">
             <p>
                 For example: "apple, banana"
             </p>
             <p>
-                <u>Note:</u> Number of results are limited to 3 to reduce 
-                the likelihood of reaching the API point limit.
+                <b>Note:</b> <i>Results are currently limited to 3 
+                for this project to reduce the likelihood of reaching the</i>
+                <a href=https://spoonacular.com/food-api/pricing class="info-link">
+                API point limit</a>.
             </p>
-                    <input type="search" id="recipe-search" name="q" placeholder="apple, banana">
-                    <input type="button" value="Search recipes" onclick="updateRecipes()">
+            </li>
+            <hr>
+            <li>
+                Search for random recipes:
+                <input type="button" value="I'm feeling lucky" onclick="randomRecipe()">
+            </li>
+            <hr>
+            <li>View estimated pricing and nutrition information within search results.</li>
+            </ol>
+
             <p></p>
         </div>
         <div class="recipe-container">
@@ -41,6 +63,7 @@
                 </table>
             </div>
         </div>
+        <p></p>
     </div>
     </body>
 

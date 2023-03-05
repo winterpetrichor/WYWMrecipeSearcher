@@ -1,8 +1,5 @@
 /*
 CSS file for WYWM API project
-
-
-
 */
 
 *{
@@ -22,7 +19,7 @@ html,body{
 }
 
 h1{
-    font-size:3cm;
+    font-size:2cm;
     margin:0;
     padding: 0.5cm;
     padding-left: 1cm;
@@ -78,15 +75,22 @@ th{
 }
 
 .img-container{
-    display:none;
+    display: inline-block;
+    margin-top: 0.5cm;
+    width: 100%;
+    max-width: 100%;
 }
 
 .info-link{
-    margin-left: 0.5cm;
     color: blue;
 }
 
 .ingred-title{
     margin-left: 0.5cm;
     font-weight: bold;
+}
+
+.recipe-buttons{
+    margin-left: 0.5cm;
+    margin-bottom: 0.5cm;
 }
